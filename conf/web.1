@@ -1,0 +1,31 @@
+
+<VirtualHost 172.20.0.126:80>
+   ServerName  pqplot.cfitzgerald.infotechfl.com
+   ServerAlias pqplot
+
+   ErrorLog  "c:/Projects/pqplot/logs/error.log"
+   DocumentRoot "C:/Projects/pqplot/static"
+
+   <Directory  "C:/Projects/pqplot/">
+      AllowOverride None
+      Order allow,deny
+      Allow from all
+   </Directory>
+   
+   Alias       /static/    "C:/Projects/pqplot/static/"
+   ScriptAlias /functions/ "C:/Projects/pqplot/functions/"
+   <Directory "C:/Projects/pqplot/functions">
+       AllowOverride None
+       Order allow,deny
+       Allow from all
+   </Directory>
+   
+
+   RewriteEngine on
+   RewriteRule ^/$                /static/pqplot.html       [PT,L]
+   RewriteRule ^/js/(.+)$         /static/$1                [PT,L]
+   RewriteRule ^/css/(.+)$        /static/$1                [PT,L]
+   RewriteRule ^/(.*\.html.*)$    /static/$1                [PT,L]
+   RewriteRule ^/fetchdata/?(.*)$ /functions/fetchdata.pl$1 [PT,L]
+#  RewriteRule ^/(.*)$            /functions/$1.pl          [PT,L]
+</VirtualHost>

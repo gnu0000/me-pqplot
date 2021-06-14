@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plot Class Test</title>
+      <style>
+      #pricediv   {position: absolute; left:430px; top: 1em;  width:30em; height:4em;  border:1px solid #2299ff;}
+      #vendordiv  {position: absolute; left:430px; top: 6em;  width:30em; height:12em; border:1px solid #2299ff;}
+      #messagediv {position: absolute; left:430px; top: 19em; width:30em; height:60em; border:1px solid #2299ff;}
+      </style>
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="pqpoint.js"></script>
+    <script type="text/javascript" src="pqdata.js"></script>
+    <script type="text/javascript" src="pqgrid.js"></script>
+    <script>
+         var testdata;
+    
+         $(function() {
+            testgrid = new PQGrid({x:500,y:500}, {datasource:"/cgi-bin/plot.pl", dataFetchSuccess: GotIt});
+         });
+         
+         function GotIt() {
+            var rows = testgrid.data.biddata.length;
+            alert("got the data (" + rows + " rows)");
+         }
+         
+    </script>
+    <style type="text/css" media="screen">
+      canvas {border: 1px solid blue;}
+  </style>
+  </head>
+  
+  <body>
+    <h1>Canvas Demo</h1>
+    <canvas class="js_pqplotter" width="400" height="300">
+      If you can see this, your browser sucks.
+    </canvas>
+    <div id="pricediv">
+      <table>
+         <tr><td>Quantity:    </td><td id="quantitylabel"   >_</td></tr>
+         <tr><td>Price:       </td><td id="pricelabel"      >_</td></tr>
+      </table>
+    </div>
+    <div id="vendordiv">
+      <table>
+         <tr><td>Bidder:      </td><td id="vendornamelabel" >_</td></tr>
+         <tr><td>LettingID:   </td><td id="lettingidlabel"  >_</td></tr>
+         <tr><td>LettingDate: </td><td id="lettingdatelabel">_</td></tr>
+         <tr><td>ContID:      </td><td id="contidlabel"     >_</td></tr>
+         <tr><td>CallOrder:   </td><td id="callorderlabel"  >_</td></tr>
+         <tr><td>Quantity:    </td><td id="bidquantitylabel">_</td></tr>
+         <tr><td>Price:       </td><td id="bidpricelabel"   >_</td></tr>
+      </table>
+    </div>
+    <div id="messagediv"></div>
+  </body>
+</html>

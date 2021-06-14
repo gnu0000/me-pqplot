@@ -1,0 +1,205 @@
+#headercontainer {
+  position: relative;
+  height 5em;
+}
+
+#maincontainer{
+  position: relative;
+  height: 40em;
+}
+
+#leftcontainer{
+  position: absolute;
+  width: 12em;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.3em;
+}
+
+#rightcontainer{
+  position: absolute;
+  left: 13em;
+  width: 60em;
+  width: 40em;
+}
+
+.selectiongroup{
+}
+
+.selectiongroup h4 {
+  margin-bottom: 0;
+}
+
+.selectiongroup h4.bumpup {
+  margin-top: 0;
+}
+
+.selectiongroup_content  {
+  margin-left: 1em;
+}
+
+.selectiongroup span {
+  display: block;
+}
+
+#outlierinfo{
+}
+
+#outlierreset{
+   position: relative;
+   top: -1.2em;
+   left: 4em;
+}
+
+#rightcontainer canvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#bidderinfo{
+   position: absolute; 
+   left: -30em; 
+   top: 0em; 
+   width:auto; 
+   border: 1px solid black; 
+   background-color: #EEC;
+   border-radius: 10px;
+   display:none;
+   z-index:99;
+   padding: 0.5em;
+}
+
+#bidderinfo span {
+   display: inline-block; 
+   padding-left: .5em;
+}
+
+#contidlabel     {
+   font-weight:bold
+}
+
+#vendornamelabel {
+   font-size: 1.1em; 
+   font-weight:bold;
+}
+
+
+#mousepos{
+  position: absolute; 
+  font-size: 0.9em; 
+  font-weight: bold;
+  left: 66em; 
+  top: 2em; 
+  width: 5em; 
+  height: 1.5em;
+}
+
+#zoomval{
+  position: absolute; 
+  font-size: 0.9em; 
+  font-weight: bold;
+  left: 60em; 
+  top: 2em; 
+  width: 3em; 
+  height: 1.5em;
+}
+
+#messagediv{
+  position: absolute; 
+  left: 73em; 
+  top: 5em;  
+  width:30em; 
+  height:45em; 
+  border:1px solid #2299ff; 
+  font-size: 0.9em; 
+  overflow:scroll
+}
+
+#examples{
+  width:50em; 
+  
+}
+
+.bpl{
+  width: 3.3em; 
+}
+
+
+
+.filterinfo {
+  display: inline-block; 
+  position: relative;
+  padding-left: 0em;
+  font-size: 0.9em; 
+  width: auto;
+  top: -0.5em;
+}
+
+
+#countsdiv {
+   position: absolute;
+   font-size: 0.9em; 
+   font-weight:bold;
+   top: 42em;
+   left: 40em;
+   width:15em;
+   text-align: right;
+}
+
+
+#vendorfilter_template {
+   display: none;
+}
+
+.vendorfilter span {
+   margin: 0;
+}
+
+.vendorfilter span {
+   display: inline-block; 
+}
+
+.vendorfilter span.bidderid {
+   width: 5em;
+}
+
+.vendorfilters{
+   border: 1px solid green;
+}
+   
+.vendorfilter{
+   position: relative;
+   border: 1px solid pink;
+}
+
+input[name=addvendoridinput] {
+   position: relative;
+   width: 10em;
+
+}
+
+.color_container {
+   position: relative;
+   display: inline-block; 
+   width: 1em;
+   height: 1em;
+   margin-left: 0.25em;
+}
+
+.color_container {
+   width: 0.5em;
+   height: 0.5em;
+   border-radius: 0.25em;
+   border: 1px solid black;
+   background-color: red;
+}
+   
+
+.vendorchoices{
+   position: absolute;
+   border:  1px solid black;
+   background-color: white;
+   z-index: 100;
+}

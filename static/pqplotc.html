@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+   <link type="text/css" rel="stylesheet" href="/css/pqplotc.css" />
+<html>
+   <head>
+      <title>PQPlot</title>
+      <script type="text/javascript" src="/js/jquery.min.js"></script>
+      <script type="text/javascript" src="/js/jquery.mousewheel.js"></script>
+      <script type="text/javascript" src="/js/pqutil.js"></script>
+      <script type="text/javascript" src="/js/pqpoint.js"></script>
+      <script type="text/javascript" src="/js/pqsurface.js"></script>
+      <script type="text/javascript" src="/js/pqdata.js"></script>
+      <script type="text/javascript" src="/js/pqgrid.js"></script>
+      <script type="text/javascript" src="/js/pqview.js"></script>
+      <script type="text/javascript" src="/js/pqplot.js"></script>
+   </head>
+     
+   <body>
+      <div id="headercontainer">
+         <h2 id="title">Item Price/Quantity Plot</h2>
+         <div id="descriptionlist"></div>
+         <div id="mousepos"></div>
+         <div id="zoomval"></div>
+      </div>
+      <div id="maincontainer">
+         <div id="leftcontainer">
+            <div class="selectiongroup">
+               <h4 class="bumpup">Outliers</h4>
+               <div class="selectiongroup_content">
+                  <span id="outlierinfo">0 outliers</span>
+                  <span id="outlierreset"><input type="button" name="resetoutliers" value="Reset" /></span>
+                  
+               </div>
+            </div>
+            <div class="selectiongroup">
+               <h4>Rank</h4>
+               <div class="selectiongroup_content">
+                  <input id="rankrange" type="range" min="1" max="6" step="1" value="6"/> 
+                  <span id="rankinfo" class="filterinfo">All bidders</span>
+               </div>
+            </div>
+            <div class="selectiongroup">
+               <h4>Age</h4>
+               <div class="selectiongroup_content">
+                  <input id="agerange" type="range" min="0" max="240" step="6" value="240"/> 
+                  <span id="ageinfo" class="filterinfo">Any</span>
+               </div>
+            </div>
+            <div class="selectiongroup">
+               <h4>Colors</h4>
+               <div class="selectiongroup_content">
+                  <input type="radio" name="colorby" value="none" id="colorbynone" checked />None<br/>
+                  <input type="radio" name="colorby" value="rank" id="colorbyrank"         />Rank<br/>
+                  <input type="radio" name="colorby" value="age"  id="colorbyage"          />Age <br/>
+               </div>
+            </div>
+            <div class="selectiongroup">
+               <h4>Vendors</h4>
+               <div class="vendorfilters selectiongroup_content">
+                  <span class="addvendorcontainer"><input type="button" name="addvendorfilter" value="Add" /></span>
+                  <div id="vendorfilter_template">
+                     <div class="vendorfilter">
+                        <input type="text" name="addvendoridinput" value="" />
+                        <div class="color_container"><div class="color"></div></div>
+                     </div class="vendorfilter">
+                  </div>
+                  <div class="vendorfilters">
+                     <div id="vendorfilterinsertmarker"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="rightcontainer">
+            <canvas class="js_pqplotter" id="canvas0" width="800" height="600">
+               If you can see this, you need a new browser..
+            </canvas>
+            <canvas class="js_overlay" id="canvas1" width="800" height="600">
+               If you can see this, you need a new browser..
+            </canvas>
+            <div id="countsdiv">
+               <span>Active: </span>
+               <span id="activebids">0</span>
+               <span> Inactive: </span>
+               <span id="inactivebids">0</span>
+            </div>
+         </div>
+      </div>
+    
+      <div id="bidderinfo">
+         <div id="vendornamelabel"></div>
+         <div>
+            <span class="bpl">Project:</span>
+            <span id="contidlabel"></span>
+         </div>
+         <div>
+            <span class="bpl">Letting:</span>
+            <span id="lettingidlabel"></span>
+            <span id="lettingdatelabel"></span>
+         </div>
+         <div>
+            <span class="bpl">Bid&nbsp;Rank:</span>
+            <span id="ranklabel"></span>
+         </div>
+         <div>
+            <span class="bpl">Quantity:</span>
+            <span id="bidquantitylabel"></span>
+         </div>
+         <div>
+            <span class="bpl">Price:</span>
+            <span id="bidpricelabel"></span>
+         </div>
+      </div>
+    <div id="messagediv"><pre></pre></div>
+    <div id="examples">
+      <a href="/?2121-7425022">2121-7425022</a>|
+      <a href="/?2101--100100">2101--100100</a>|
+      <a href="/?2102--100100">2102--100100</a>|
+      <a href="/?2102--100200">2102--100200</a>|
+      <a href="/?2102--100300">2102--100300</a>|
+      <a href="/?2102--120100">2102--120100</a>|
+      <a href="/?2102--120400">2102--120400</a>|
+      <a href="/?2102--121000">2102--121000</a>|
+      <a href="/?2102--130100">2102--130100</a>|
+      <a href="/?2102--130300">2102--130300</a>|
+      <a href="/?2102--200100">2102--200100</a>|
+      <a href="/?2102--210000">2102--210000</a>|
+      <a href="/?2102--220100">2102--220100</a>|
+      <a href="/?2102--230100">2102--230100</a>|
+      <a href="/?2102--230200">2102--230200</a>|
+      <a href="/?2102--240000">2102--240000</a>|
+      <a href="/?2102--250000">2102--250000</a>
+      <br />
+      <a href="/?2312-8260051">2312-8260051</a>|
+      <a href="/?2102-2625000">2102-2625000</a>|
+      <a href="/?2408-7800000">2408-7800000</a>|
+      <a href="/?2105-8425015">2105-8425015</a>|
+      <a href="/?2303-0245828">2303-0245828</a>|
+      <a href="/?2404-7775000">2404-7775000</a>|
+      <a href="/?2510-6745850">2510-6745850</a>|
+      <a href="/?2402-2720000">2402-2720000</a>|
+      <a href="/?2528-8445112">2528-8445112</a>
+    </div>
+  </body>
+</html>
+
+
+

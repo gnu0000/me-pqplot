@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+   <link type="text/css" rel="stylesheet" href="/css/pqplot.css" />
+<html>
+  <head>
+    <title>PQPlot</title>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="/js/pqutil.js"></script>
+    <script type="text/javascript" src="/js/pqpoint.js"></script>
+    <script type="text/javascript" src="/js/pqsurface.js"></script>
+    <script type="text/javascript" src="/js/pqdata.js"></script>
+    <script type="text/javascript" src="/js/pqgrid.js"></script>
+    <script type="text/javascript" src="/js/pqview.js"></script>
+    <script type="text/javascript" src="/js/pqplot.js"></script>
+    <style type="text/css" media="screen">
+      canvas {border: 1px solid black;}
+  </style>
+  </head>
+  
+  <body>
+    <h1 id="title">PQ Plot Dev x</h1>
+    <canvas class="js_pqplotter" id="canvas0" width="800" height="600">
+       If you can see this, your browser sucks.
+    </canvas>
+    <canvas class="js_overlay" id="canvas1" width="800" height="600">
+       If you can see this, your browser sucks.
+    </canvas>
+    <div id="mousepos"></div>
+    <div id="zoomval"></div>
+    <div id="bidderinfo">
+      <div id="vendornamelabel"></div>
+      <div>
+         <span class="bpl">Project:</span>
+         <span id="contidlabel"></span>
+      </div>
+      <div>
+         <span class="bpl">Letting:</span>
+         <span id="lettingidlabel"></span>
+         <span id="lettingdatelabel"></span>
+      </div>
+      <div>
+         <span class="bpl">Quantity:</span>
+         <span id="bidquantitylabel"></span>
+      </div>
+      <div>
+         <span class="bpl">Price:</span>
+         <span id="bidpricelabel"></span>
+      </div>
+    </div>
+    <div id="vendordiv" style="display:none;">
+      <table>
+         <tr><td>Bidder:      </td><td id="zvendornamelabel" >_</td></tr>
+         <tr><td>LettingID:   </td><td id="zlettingidlabel"  >_</td></tr>
+         <tr><td>LettingDate: </td><td id="zlettingdatelabel">_</td></tr>
+         <tr><td>ContID:      </td><td id="zcontidlabel"     >_</td></tr>
+         <tr><td>CallOrder:   </td><td id="zcallorderlabel"  >_</td></tr>
+         <tr><td>Quantity:    </td><td id="zbidquantitylabel">_</td></tr>
+         <tr><td>Price:       </td><td id="zbidpricelabel"   >_</td></tr>
+         
+      </table>
+    </div>
+    <div id="messagediv"><pre></pre></div>
+    <div style="position: absolute; top: 49em;">
+      <span>Rank:</span>
+      <input id="rankrange" type="range" min="1" max="6" step="1"/> 
+      <span id="rankinfo"></span>
+    </div>
+  </body>
+</html>

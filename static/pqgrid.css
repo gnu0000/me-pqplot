@@ -1,0 +1,54 @@
+#pricediv   {
+position: absolute; left:60em; top: 1em; width:22em; height:3.3em;  border:1px solid #2299ff;
+}
+#vendordiv  {
+position: absolute; left:0.5em; top: 59em; width:22em; height:12em; border:1px solid #2299ff;
+}
+#messagediv {
+position: absolute; left: 98em; top: 4em;  width:30em; height:55em; border:1px solid #2299ff; font-size: 0.9em; overflow:scroll
+}
+#mousepos   {
+position: absolute; left: 18em; top: 2em ; width:5em ; height:1.5em;
+}
+#bidderinfo {
+   position: absolute; 
+   left: 25em; 
+   top: 2em ; 
+   width:25em ; 
+   border: 1px solid black; 
+   background-color: #EEC;
+   border-radius: 10px;
+   display:none;
+}
+#contidlabel     {
+font-weight:bold
+}
+#vendornamelabel {
+font-size: 1.1em; font-weight:bold;
+}
+#bidquantitylabel{
+}
+
+#bidpricelabel   {
+}
+
+.bpl {
+width: 10em; border: 1px solid red;
+}
+
+#canvas0    {
+position: absolute; left: 1em; top: 5em;
+}
+#canvas1    {
+position: absolute; left: 1em; top: 5em; background-color:transparent;
+}
+
+#rankfilter {
+  position: absolute; 
+  top: 46em;
+}
+
+#agefilter {
+  position: absolute; 
+  top: 48em;
+}

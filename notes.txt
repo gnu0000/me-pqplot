@@ -1,0 +1,90 @@
+notes:
+
+PQData.js  - fetches, filters and does stats on the data
+             is used by pqgrid
+
+PQGrid.js  - this maps the points from data to a plot
+             the size if the plot is the size of the
+             viewport in the canvas.  The viewport
+             is the canvas minus the borders and axes.
+             uses pqdata for the raw data, used by
+             pqview
+             
+PQView.js  - this maps the points from the plot to the 
+             viewport (includes stuff like scaling and panning)
+             is also paints the area outside the viewport
+             including axes, labels, and tickmarks.
+             uses pqgrid for the plot translated data, used by
+             Currently handles user input, but that will
+             probably move up to pqplot
+             
+PQPlot.js  - the main file, currently this just wraps the
+             pqview with debug event key handling, but
+             I will most likely move the input handling here
+
+PQPoint.js - class to manage a point. an experimental api that
+             mods the object data in place so I can chain.
+             probably a mistake
+
+
+PQUtil.js  - misc util fns
+------------------------------------------------------------------
+
+
+
+PQData.js 
+----------
+   self.RegressionPriceRange(quantity) - for best-fit-curve
+   (functions to filter data)
+   
+   self.biddata  - array of bid records
+   self.min      - min quan and price
+   self.max      - max quan and price
+
+   
+PQGrid.js 
+----------
+   decorates PQData.biddata[] : PQData.biddata[].gPoint
+   PointFromData    d->p mapping
+   PointToData      p->d mapping
+   DataMin          data val at bottom left of plot (this is not PQData.min since there may be some buffer between min values and the axes)
+   DataMax          data val at top right of plot   (this is not PQData.max since there may be some buffer between min values and the axes)
+
+   self.gridsize  - x and y size of the plot
+   self.min       - min plottable DATA val (same as PQData.min !?)
+   self.max       - max plottable DATA val (same as PQData.max !?)
+   self.actualMin - min actual DATA val
+   self.actualMax - max actual DATA val
+   self.xMarkers  - array of DATA values for drawing tick labels
+   self.yMarkers  - array of DATA values for drawing tick labels
+   self.scale     - conversion factor (multiplier) from data to grid
+   
+   self.range   
+   self.scale   
+   self.data    
+
+PQView.js 
+----------
+   self.HLine <- absolute pos
+
+
+   self.offset           - panning value
+   self.scale            - scaling value
+   self.canvasSize       - canvas size
+   self.viewportStartPos - top left of viewport      viewportStartPos
+   self.viewportEndPos   - bottom right of viewport  viewportEndPos
+   self.viewportSize     - viewport size             viewportSize  
+   self.viewportCenter   - centerpoint of viewport
+   
+   
+    
+
+PQPlot.js 
+----------
+
+PQPoint.js
+----------
+PQUtil.js 
+----------
+
+

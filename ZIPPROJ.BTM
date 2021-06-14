@@ -1,0 +1,39 @@
+@echo off
+rem **********************************************
+rem  Zips source code for PQPlot source tree
+rem  zip is put in the bkup directory
+rem **********************************************
+
+setlocal
+
+rem === get name of this dir ===
+set base=%_CWP
+do forever
+	set idx=%@INDEX[%base,\]
+	if %idx == -1 leave
+	set idx=%@eval[%idx+1]
+	set base=%@instr[%idx,,%base]
+enddo
+
+set tim=%_year-%_month-%_day
+set charval=96
+
+:loop1
+	set charval=%@eval[%charval+1]
+	set name=%base%%tim%%@char[%charval].ZIP
+	if not exist %name goto next1
+	echo %name exists already
+goto loop1
+
+:next1
+	if not exist bkup\%name goto break1
+	echo bkup\%name exists already
+goto loop1
+
+:break1
+echo Zipping to %name
+pkzip -add -path -rec -exc=@c:\util\bin\exclude.lst -excl=bkup\*.* -excl=*.old -excl=*.zzz -excl=*.bak %name *.*
+
+move %name bkup
+
+endlocal
